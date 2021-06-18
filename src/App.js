@@ -45,7 +45,11 @@ plugin:jsx-a11y/recommended, prettier
 Tell ESLint that we're using React hooks. npm install -D
 eslint-plugin-react-hooks. And add to extends array in scripts:
 "plugin:react-hooks/recommended"
+*/
 
+/*
+Make an animal dropdown so we can choose what kind of animal. Also make a breed
+dropdown.
 */
 
 const App = () => {
