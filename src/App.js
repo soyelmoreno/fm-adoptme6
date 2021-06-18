@@ -33,6 +33,14 @@ them.
   'defaults' covers 92% of users. 
 */
 
+/*
+Once we start using React and JSX, we need to augment ESLint's capabilities so
+that it can understand them. npm install -D eslint-plugin-import
+eslint-plugin-jsx-a11y eslint-plugin-react. Also add some stuff to
+.eslintrc.json: plugin:import/errors, plugin:react/recommended,
+plugin:jsx-a11y/recommended, prettier
+*/
+
 const App = () => {
   return (
     <div>
