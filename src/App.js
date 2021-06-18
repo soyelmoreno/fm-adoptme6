@@ -41,6 +41,13 @@ eslint-plugin-jsx-a11y eslint-plugin-react. Also add some stuff to
 plugin:jsx-a11y/recommended, prettier
 */
 
+/*
+Tell ESLint that we're using React hooks. npm install -D
+eslint-plugin-react-hooks. And add to extends array in scripts:
+"plugin:react-hooks/recommended"
+
+*/
+
 const App = () => {
   return (
     <div>
