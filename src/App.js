@@ -1,6 +1,8 @@
 import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import SearchParams from "./SearchParams";
+import Details from "./Details";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 /* could do this, but don't need to: global React ReactDOM */
 
 /* 
@@ -53,11 +55,27 @@ Make an animal dropdown so we can choose what kind of animal. Also make a breed
 dropdown.
 */
 
+/*
+React Router. Uses route matching. Partial matching from left to right.
+*/
+
 const App = () => {
   return (
     <div>
       <h1>Adopt Me ---</h1>
-      <SearchParams />
+
+      <Router>
+        <Switch>
+          <Route path="/details/:id">
+            {/* Show a details page */}
+            <Details />
+          </Route>
+          <Route path="/">
+            {/* Search params page */}
+            <SearchParams />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 };
