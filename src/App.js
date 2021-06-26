@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import SearchParams from "./SearchParams";
 import Details from "./Details";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 /* could do this, but don't need to: global React ReactDOM */
 
 /* 
@@ -62,9 +62,12 @@ React Router. Uses route matching. Partial matching from left to right.
 const App = () => {
   return (
     <div>
-      <h1>Adopt Me ---</h1>
-
       <Router>
+        <header>
+          <Link to="/">
+            <h1>Adopt Me ---</h1>
+          </Link>
+        </header>
         <Switch>
           <Route path="/details/:id">
             {/* Show a details page */}
