@@ -1,3 +1,4 @@
+import { StrictMode } from "react";
 import ReactDOM from "react-dom";
 import SearchParams from "./SearchParams";
 /* could do this, but don't need to: global React ReactDOM */
@@ -61,4 +62,9 @@ const App = () => {
   );
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+  document.getElementById("root")
+);
