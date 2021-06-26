@@ -59,6 +59,19 @@ dropdown.
 React Router. Uses route matching. Partial matching from left to right.
 */
 
+/*
+Class properties. Need to modify Babel configs. Woot.
+npm i -D @babel/plugin-proposal-class-properties @babel/preset-env
+@babel/eslint-parser@7.13.4
+- @babel/plugin-proposal-class-properties: lets us use class properties
+- @babel/preset-env
+- @babel/eslint-parser: tells eslint how to handle class properties
+
+So, instead of using a constructor and making this.state with tons of
+properties, we can use class properties to skip the constructor, just put `state
+=` in the class definition.
+*/
+
 const App = () => {
   return (
     <div>

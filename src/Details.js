@@ -3,10 +3,7 @@ import { withRouter } from "react-router-dom";
 
 /* A class component */
 class Details extends Component {
-  constructor() {
-    super();
-    this.state = { loading: true };
-  }
+  state = { loading: true };
 
   // Calls when the React component is rendered for the first time
   async componentDidMount() {
