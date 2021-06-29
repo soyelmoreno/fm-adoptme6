@@ -30,6 +30,6 @@
     "react-router-dom": "^5.2.0"
   },
   "browserslist": [
-    "defaults"
+    "last 5 Chrome versions"
   ]
 }
