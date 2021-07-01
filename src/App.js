@@ -72,6 +72,19 @@ properties, we can use class properties to skip the constructor, just put `state
 =` in the class definition.
 */
 
+/*
+Manage state with onClick handlers. In a class component, to get `this` to work
+correctly inside a class method, you need to tell it the context it's operating
+in, aka, you need to define what `this` is. You can do that three ways: 
+  - In JSX, append `.bind(this)` to onClick, like this: onClick =
+    {this.handleClick.bind(this)}
+  - Do pretty much the same thing in the class constructor, like this:
+    this.handleClick = this.handleClick.bind(this);
+  - But the easiest to make the method an arrow function. That's because arrow
+    functions do not create their own `this`, instead they use the `this` from
+    where they were created: this.handleClick = (event) => {}
+*/
+
 const App = () => {
   return (
     <div>
