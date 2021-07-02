@@ -1,6 +1,9 @@
 import { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Carousel from "./Carousel";
+import ErrorBoundary from "./ErrorBoundary";
+
+// Want to put ErrorBoundary component above (in the hierarchy).
 
 /* A class component */
 class Details extends Component {
@@ -43,6 +46,7 @@ class Details extends Component {
     }
     const { animal, breed, city, state, description, name, images } =
       this.state;
+
     return (
       <div className="details">
         <Carousel images={images} />
@@ -58,4 +62,12 @@ class Details extends Component {
   }
 }
 
-export default withRouter(Details);
+const DetailsWithRouter = withRouter(Details);
+
+export default function DetailsWithErrorBoundary() {
+  return (
+    <ErrorBoundary>
+      <DetailsWithRouter />
+    </ErrorBoundary>
+  );
+}

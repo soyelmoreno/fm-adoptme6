@@ -85,6 +85,11 @@ in, aka, you need to define what `this` is. You can do that three ways:
     where they were created: this.handleClick = (event) => {}
 */
 
+/*
+Error boundaries: for unreliable APIs, nice to wrap in an <ErrorBoundary>
+components. Note: can only do this from a class component.
+*/
+
 const App = () => {
   return (
     <div>
