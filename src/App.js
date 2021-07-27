@@ -111,6 +111,12 @@ entire app in ThemeContext.Provider. This means that every component inside can
 access this context. Avoids the need to do "prop-drilling"; passing props from
 parent to child over and over again until the component that needs it can get
 it.
+
+You can have multiple contexts. Just wrap different components in different
+<Theme.Provider>s.  Nearest ancestor wins. But basically never do this.
+
+Cna also use inside a class component, just a little less convenient. See
+Details.js. Wrap a component in a <ThemeContext.Consumer>
 */
 
 const App = () => {
