@@ -118,8 +118,14 @@ You can have multiple contexts. Just wrap different components in different
 Cna also use inside a class component, just a little less convenient. See
 Details.js. Wrap a component in a <ThemeContext.Consumer>
 
-Make a Theme selector select box. Will change the colors of the buttons
+Make a Theme selector <select> box. Will change the colors of the buttons
 *everywhere* in the app.
+*/
+
+/*
+Models. Have to show up in front of all components. So, we want to render it
+outside of the component, in a different part of the application and DOM, but
+originating from within a component.
 */
 
 const App = () => {
