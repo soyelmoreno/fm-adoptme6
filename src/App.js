@@ -1,8 +1,9 @@
-import { StrictMode } from "react";
+import { StrictMode, useState } from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import SearchParams from "./SearchParams";
 import Details from "./Details";
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import ThemeContext from "./ThemeContext";
 /* could do this, but don't need to: global React ReactDOM */
 
 /* 
@@ -94,27 +95,48 @@ state with redirect: true inside the componentDidCatch. In render(), just render
 a <Redirect> component from react-router-dom;
 */
 
+/*
+Context: it's a sledgehammer, so don't use it all the time. It adds
+indirection...something happened here but it was actually defined way over here.
+Example: a theme, e.g., dark mode. It affects every component in your
+application, a universal, global state for your application. Or if a user logs
+in, you're gonna store that user information in Context, because almost every
+component probably needs to know something about the user. Don't put stuff in
+Context that only applies within a single component (e.g., which pet picture is
+showing). Only global stuff that multiple components need.
+
+Create a ThemeContext. Pass in a signature of expected types for Typescript. In
+App, call useState with default theme string, get the returned them, then wrap
+entire app in ThemeContext.Provider. This means that every component inside can
+access this context. Avoids the need to do "prop-drilling"; passing props from
+parent to child over and over again until the component that needs it can get
+it.
+*/
+
 const App = () => {
+  const theme = useState("darkblue");
   return (
-    <div>
-      <Router>
-        <header>
-          <Link to="/">
-            <h1>Adopt Me ---</h1>
-          </Link>
-        </header>
-        <Switch>
-          <Route path="/details/:id">
-            {/* Show a details page */}
-            <Details />
-          </Route>
-          <Route path="/">
-            {/* Search params page */}
-            <SearchParams />
-          </Route>
-        </Switch>
-      </Router>
-    </div>
+    <ThemeContext.Provider value={theme}>
+      <div>
+        <Router>
+          <header>
+            <Link to="/">
+              <h1>Adopt Me ---</h1>
+            </Link>
+          </header>
+          <Switch>
+            <Route path="/details/:id">
+              {/* Show a details page */}
+              <Details />
+            </Route>
+            <Route path="/">
+              {/* Search params page */}
+              <SearchParams />
+            </Route>
+          </Switch>
+        </Router>
+      </div>
+    </ThemeContext.Provider>
   );
 };
 
