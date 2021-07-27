@@ -88,6 +88,10 @@ in, aka, you need to define what `this` is. You can do that three ways:
 /*
 Error boundaries: for unreliable APIs, nice to wrap in an <ErrorBoundary>
 components. Note: can only do this from a class component.
+
+Redirect on error: Click here to go back to home page, or wait five seconds. Set
+state with redirect: true inside the componentDidCatch. In render(), just render
+a <Redirect> component from react-router-dom;
 */
 
 const App = () => {
